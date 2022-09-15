@@ -1,4 +1,5 @@
 import random
+import tkinter
 
 
 def input_range():
@@ -31,10 +32,10 @@ def main():
 
 def time_to_guess(p_number_to_guess, p_min_number, p_max_number):
     user_guess = None
-    counting_guess = 1
+    counting_guesses = 1
 
     while user_guess != p_number_to_guess:
-        print("Essaie n° %d : " % counting_guess)
+        print("Essaie n° %d : " % counting_guesses)
         user_guess = int(input("Quel est le chiffre aléatoire ?"))
 
         if user_guess < p_min_number or user_guess > p_max_number:
@@ -47,7 +48,7 @@ def time_to_guess(p_number_to_guess, p_min_number, p_max_number):
                 print("Le nombre que tu as choisi est supérieur au nombre à trouver")
             elif user_guess < p_number_to_guess:
                 print("Le nombre que tu as choisi est plus petit que le nombre à trouver")
-        counting_guess = counting_guess + 1
+        counting_guesses = counting_guesses + 1
 
 
 
@@ -60,8 +61,10 @@ def  request_user_name():
 
 def crack_the_code():
     guessed_word = input("Vous avez une dernière mission...\nEssayer de deviner le mot suivant : *i*to*r*\n")
-
+    counting_guesses = 1
     while guessed_word != "victoire":
+        print("Essaie n° %d : " % counting_guesses)
+        counting_guesses = counting_guesses + 1
         guessed_word = input("Veuillez réessayer\n")
 
     print("Félicitations ! Vous avez deviné le mot !")
